@@ -1,11 +1,3 @@
-//task 2.1
-let admin;
-let nameAdmin = "jon";
-
-admin = nameAdmin;
-alert(admin);
-
-// task 2.2
-
-let planetEarth;
-let justUser;
+// task 3.1
+let userName = prompt("your name?", "artur");
+alert(userName);
