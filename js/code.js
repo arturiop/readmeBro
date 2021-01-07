@@ -1,26 +1,29 @@
 "use strict"
-// task 5.0
-for (let i = 1; i <= 10; i++) {
-	if (i % 2) continue;
-	alert(i);
+// task 6
+
+if (browser === 'Edge') {
+	alert("You've got the Edge!");
+} else if (browser === 'Chrome' || browser === 'Firefox' || browser === 'Safari' || browser === 'Opera') {
+	alert('Okay we support these browsers too');
+} else {
+	alert('We hope that this page looks ok!');
 }
 
+// task 6.1
+const number = +prompt('Введите число между 0 и 3', '');
+switch (number) {
+	case 0:
+		alert('Вы ввели число 0');
+		break;
 
-// task 5.1
-let i = 0;
-while (i < 3) {
-	alert(`number ${i}!`);
-	i++;
-}
+	case 1:
+		alert('Вы ввели число 1');
+		break;
 
-// task 5.2
-outlabel: while (true) {
-	let writeNumber = prompt("write number biggest 100", "");
-	if (writeNumber == null) {
-		break outlabel;
-	} else if (writeNumber < 100) {
-		continue;
-	} else if (writeNumber >= 100) {
-		break outlabel;
-	}
+	case 2:
+	case 3:
+		alert('Вы ввели число 2, а может и 3');
+		break;
+	default:
+		alert("not a number");
 }
