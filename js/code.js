@@ -1,20 +1,26 @@
-// task 5.0
 "use strict"
-let userLogin = "Admin";
-let userPassword = "ffgg05";
-let enteredUserLogin = prompt("write login", "");
+// task 5.0
+for (let i = 1; i <= 10; i++) {
+	if (i % 2) continue;
+	alert(i);
+}
 
-if (userLogin === enteredUserLogin) {
-	let enterefUserPassword = prompt("write password", "");
-	if (enterefUserPassword === userPassword) {
-		alert("hi boss");
-	} else if (enterefUserPassword == null) {
-		alert("canceling");
-	} else {
-		alert("not correct pessword");
+
+// task 5.1
+let i = 0;
+while (i < 3) {
+	alert(`number ${i}!`);
+	i++;
+}
+
+// task 5.2
+outlabel: while (true) {
+	let writeNumber = prompt("write number biggest 100", "");
+	if (writeNumber == null) {
+		break outlabel;
+	} else if (writeNumber < 100) {
+		continue;
+	} else if (writeNumber >= 100) {
+		break outlabel;
 	}
-} else if (enteredUserLogin == null) {
-	alert("canceling");
-} else {
-	alert("indefinitely");
 }
