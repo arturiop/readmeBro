@@ -1,29 +1,40 @@
 "use strict"
-// task 6
+// task 7
+function checkAge(age) {
+	return (age > 18) ? true : confirm('Родители разрешили?');
+}
 
-if (browser === 'Edge') {
-	alert("You've got the Edge!");
-} else if (browser === 'Chrome' || browser === 'Firefox' || browser === 'Safari' || browser === 'Opera') {
-	alert('Okay we support these browsers too');
+function checkAge(age) {
+	return (age > 18) || confirm('Родители разрешили?');
+}
+
+// task 7.1
+function min(a, b) {
+	return (a <= b) ? a : b;
+
+}
+alert(min(5, 5));
+
+// task 7.2
+// enter data
+let userNumberY = prompt("write Y ", "");
+let userNumberN;
+if (userNumberY !== null) {
+	userNumberN = prompt("write N ", "");
+	if (userNumberN == null) {
+		alert("incorrect input");
+	}
 } else {
-	alert('We hope that this page looks ok!');
+	alert("incorrect input");
 }
 
-// task 6.1
-const number = +prompt('Введите число между 0 и 3', '');
-switch (number) {
-	case 0:
-		alert('Вы ввели число 0');
-		break;
-
-	case 1:
-		alert('Вы ввели число 1');
-		break;
-
-	case 2:
-	case 3:
-		alert('Вы ввели число 2, а может и 3');
-		break;
-	default:
-		alert("not a number");
+function pow(y, n) {
+	let sum = y;
+	let i = 0;
+	while (++i < n) {
+		sum *= y;
+	}
+	return sum;
 }
+
+console.log(pow(userNumberY, userNumberN));
