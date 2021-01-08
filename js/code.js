@@ -1,40 +1,52 @@
 "use strict"
-// task 7
-function checkAge(age) {
-	return (age > 18) ? true : confirm('Родители разрешили?');
-}
+// task 8.0
+let user = {};
+user.name = "John";
+console.log(user.name);
+user.surname = "Smith";
+user.name = "Pete";
+console.log(user.name);
+delete user.name;
+console.log(user.name);
 
-function checkAge(age) {
-	return (age > 18) || confirm('Родители разрешили?');
-}
+task 8.1
 
-// task 7.1
-function min(a, b) {
-	return (a <= b) ? a : b;
-
-}
-alert(min(5, 5));
-
-// task 7.2
-// enter data
-let userNumberY = prompt("write Y ", "");
-let userNumberN;
-if (userNumberY !== null) {
-	userNumberN = prompt("write N ", "");
-	if (userNumberN == null) {
-		alert("incorrect input");
+function isEmpty(ob) {
+	for (let key in ob) {
+		return false;
 	}
-} else {
-	alert("incorrect input");
+	return true;
 }
 
-function pow(y, n) {
-	let sum = y;
-	let i = 0;
-	while (++i < n) {
-		sum *= y;
+let obj = {};
+console.log(isEmpty(obj));
+
+// task 8.2
+let salaries = {
+	John: 100,
+	Ann: 160,
+	Pete: 130
+}
+
+let sum = 0;
+for (let ij in salaries) {
+	sum += salaries[ij];
+}
+console.log(sum);
+
+//task 8,3
+function multiplyNumeric(obj) {
+	for (let ij in obj) {
+		if (Number.isInteger(obj[ij])) {
+			let i = obj[ij];
+			i *= 2;
+			obj[ij] = i;
+
+		}
 	}
-	return sum;
 }
+let menu = {
 
-console.log(pow(userNumberY, userNumberN));
+};
+multiplyNumeric(menu);
+console.log(Object.values(menu));
