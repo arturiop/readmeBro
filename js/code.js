@@ -1,22 +1,39 @@
 "use strict"
-// task 9
+// task 10
 
-let calcilator = {
+function Calcilator(name) {
 
-	read() {
+	this.read = function () {
 		this.numb1 = prompt("num1", "");
 		this.numb2 = prompt("numb2", "");
 	},
 
-	sum() {
-		return +this.numb1 + +this.numb2;
-	},
+		this.sum = function () {
+			return +this.numb1 + +this.numb2;
+		},
 
-	muuult() {
-		return this.numb1 * this.numb2;
-	}
+		this.muuult = function () {
+			return this.numb1 * this.numb2;
+		}
+	console.log(name);
+
 
 }
-calcilator.read();
-console.log(calcilator.sum());
-console.log(calcilator.muuult());
+let calc = new Calcilator("VAsy");
+calc.read();
+console.log(calc.sum());
+console.log(calc.muuult());
+
+// task 10.1
+function Accumulator(startingValue) {
+
+	this.numb = startingValue;
+	this.read = function () {
+		this.numb += +prompt("numb", "");
+	};
+}
+let b = new Accumulator(5);
+b.read();
+b.read();
+
+alert(b.numb);
