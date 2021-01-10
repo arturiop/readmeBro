@@ -1,39 +1,48 @@
 "use strict"
-// task 10
+// task 10.2
+function g() {
 
-function Calcilator(name) {
-
-	this.read = function () {
-		this.numb1 = prompt("num1", "");
-		this.numb2 = prompt("numb2", "");
-	},
-
-		this.sum = function () {
-			return +this.numb1 + +this.numb2;
-		},
-
-		this.muuult = function () {
-			return this.numb1 * this.numb2;
-		}
-	console.log(name);
-
-
+	let i = prompt("1", "");
+	if (i !== null) {
+		alert("numb " + i);
+	} else {
+		alert("null");
+	}
 }
-let calc = new Calcilator("VAsy");
-calc.read();
-console.log(calc.sum());
-console.log(calc.muuult());
-
-// task 10.1
-function Accumulator(startingValue) {
-
-	this.numb = startingValue;
-	this.read = function () {
-		this.numb += +prompt("numb", "");
-	};
+g();
+let i = 0;
+while (i != 10) {
+	console.log(`fsdjkfsa ${i}`);
+	i += 0.2;
+	if (i > 11) {
+		break;
+	}
 }
-let b = new Accumulator(5);
-b.read();
-b.read();
+//task 10.3
+function ucFirst(str) {
+	let con = str[0].toUpperCase() + str.slice(1);
+	return alert(con)
+}
+ucFirst("sadgfsdagasdася");
 
-alert(b.numb);
+//task 10.4
+function checkSpam(str) {
+	let stric = str.toUpperCase();
+	if (!stric.indexOf("VIAGRA")) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+console.log(checkSpam('viagra'));
+console.log(checkSpam("innocent viagra rabbit"));
+
+
+//task 10.5
+function extractCurrencyValue(str) {
+	let numb = str.slice(1);
+	return numb;
+}
+alert(extractCurrencyValue('$120'));
+
