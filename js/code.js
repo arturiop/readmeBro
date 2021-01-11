@@ -1,48 +1,21 @@
 "use strict"
-// task 10.2
-function g() {
+// task 11
 
-	let i = prompt("1", "");
-	if (i !== null) {
-		alert("numb " + i);
-	} else {
-		alert("null");
-	}
-}
-g();
-let i = 0;
-while (i != 10) {
-	console.log(`fsdjkfsa ${i}`);
-	i += 0.2;
-	if (i > 11) {
-		break;
-	}
-}
-//task 10.3
-function ucFirst(str) {
-	let con = str[0].toUpperCase() + str.slice(1);
-	return alert(con)
-}
-ucFirst("sadgfsdagasdася");
+let m = ["sdg", "sdkgjsd", "skgjwerewrwqe", "f", "sedg", "sdwkgjsd", "skgjwewrewrwqe", "fq"];
+for (let i of m) {
 
-//task 10.4
-function checkSpam(str) {
-	let stric = str.toUpperCase();
-	if (!stric.indexOf("VIAGRA")) {
-		return true;
-	} else {
-		return false;
-	}
 }
+console.log(m.length());
 
-console.log(checkSpam('viagra'));
-console.log(checkSpam("innocent viagra rabbit"));
+let styles = ["Jaz", "Bluz"];
+console.log("5" + styles);
+styles.push("Rock and roll");
+console.log("4" + styles);
+styles[2] = "Classic";
+console.log("3" + styles);
+styles.shift();
+console.log("2" + styles);
+styles.unshift("Rap", "Reggi");
+console.log("1" + styles);
 
-
-//task 10.5
-function extractCurrencyValue(str) {
-	let numb = str.slice(1);
-	return numb;
-}
-alert(extractCurrencyValue('$120'));
 
