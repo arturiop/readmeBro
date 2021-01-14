@@ -1,28 +1,22 @@
 "use strict"
 //task 15
 
-function getW(d) {
-	let i = d.getDay();
-	switch (i) {
-		case 0: return "ВС";
+let student = {
+	name: 'John',
+	age: 30,
+	isAdmin: false,
+	courses: ['html', 'css', 'js'],
+	wife: null
+};
 
-		case 1: return "ПН";
+let user = {
+	name: "Василий Иванович",
+	age: 35
+};
 
-		case 2: return "ВТ";
+let json = JSON.stringify(user);
+let i = JSON.parse(json);
 
-		case 3: return "СР";
 
-		case 4: return "СТ";
-
-		case 5: return "ПТ";
-
-		case 6: return "СБ";
-
-		default: console.log("und");
-	}
-
-}
-let date = new Date(2012, 3, 20, 13, 12);
-
-console.log(getW(date));
-console.log(performance.now());
+console.log(json);
+console.log(i);
