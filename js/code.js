@@ -1,28 +1,28 @@
 "use strict"
-//task 14
-function sumSalaries(obj) {
-	let sum = 0;
-	for (let rs of Object.values(obj)) {
-		sum += rs;
+//task 15
+
+function getW(d) {
+	let i = d.getDay();
+	switch (i) {
+		case 0: return "ВС";
+
+		case 1: return "ПН";
+
+		case 2: return "ВТ";
+
+		case 3: return "СР";
+
+		case 4: return "СТ";
+
+		case 5: return "ПТ";
+
+		case 6: return "СБ";
+
+		default: console.log("und");
 	}
-	return sum;
+
 }
+let date = new Date(2012, 3, 20, 13, 12);
 
-
-let salaries = {
-
-};
-
-console.log(sumSalaries(salaries)); // 650
-
-//task14.1
-function count(us) {
-
-	return Object.keys(us).length;
-}
-let user = {
-	name: 'John',
-	age: 30
-};
-
-console.log(count(user)); 
+console.log(getW(date));
+console.log(performance.now());
