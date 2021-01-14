@@ -1,28 +1,28 @@
 "use strict"
-//task 13
-function unique(arr) {
-	let rs = new Set(arr);
-	return rs;
+//task 14
+function sumSalaries(obj) {
+	let sum = 0;
+	for (let rs of Object.values(obj)) {
+		sum += rs;
+	}
+	return sum;
 }
 
-let values = ["Hare", "Krishna", "Hare", "Krishna",
-	"Krishna", "Krishna", "Hare", "Hare", ":-O"
-];
 
-console.log(unique(values)); // Hare,Krishna,:-O
+let salaries = {
 
+};
 
+console.log(sumSalaries(salaries)); // 650
 
+//task14.1
+function count(us) {
 
-//task 13.1
-let map = new Map();
-
-map.set("name", "John");
-
-let keys = [];
-for (let i of map.keys()) {
-	keys.push(i);
+	return Object.keys(us).length;
 }
+let user = {
+	name: 'John',
+	age: 30
+};
 
-keys.push("more");
-console.log(keys);
+console.log(count(user)); 
