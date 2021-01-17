@@ -1,51 +1,55 @@
 "use strict"
-//task 18
+// //task 19
+// let age = 26;
+// class User {
+// 	name = "Аноним";
 
-let artur = {
-	name: "artur",
-	age: 26,
 
-	get fullName() {
-		if (this.surName == null) {
-			return `${this.name} Piloian`;
-		} else {
-			return `${this.name} ${this.surName}`;
-		}
-	},
+// 	sayHi() {
+// 		console.log(`Привет, ${this.name}! ${age}`);
+// 	}
+// }
 
-	set fullName(value) {
-		this.surName = value;
+// new User().sayHi();
+
+
+
+// class MyClass {
+// 	prop = value; // свойство
+// 	constructor(...) { // конструктор
+// 		// ...
+// 	}
+// 	method(...) { } // метод
+// 	get something(...) { } // геттер
+// 	set something(...) { } // сеттер
+
+// 	[Symbol.iterator]() { } // метод с вычисляемым именем (здесь - символом)
+// 	// ...
+// }
+
+
+// class A {
+// 	constructor(name, age) {
+// 		this.name = name;
+// 		this.age = age;
+// 		this.surName = "artur";
+// 	}
+
+// }
+class Animal {
+
+	constructor(name) {
+		this.name = name;
+	}
+
+}
+
+class Rabbit extends Animal {
+	constructor(name) {
+		super(name);
+		this.created = Date.now();
 	}
 }
 
-
-console.log(artur.fullName);
-artur.fullName = "iam";
-console.log(artur.fullName);
-
-
-
-//task18.1
-let head = {
-
-	glasses: 1
-};
-
-let table = {
-	__proto__: head,
-	pen: 3
-};
-
-let bed = {
-	__proto__: table,
-	sheet: 1,
-	pillow: 2
-};
-
-let pockets = {
-	__proto__: bed,
-	money: 2000
-};
-
-
-
+let rabbit = new Rabbit("Белый кролик"); // Error: this is not defined
+console.log(rabbit.name);

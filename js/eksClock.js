@@ -1,0 +1,3 @@
+class EksClock extends Clock {
+
+}
