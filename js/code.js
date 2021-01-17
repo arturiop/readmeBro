@@ -1,100 +1,73 @@
 "use strict"
-//task 16
-function pow(a, b) {
-	let sum = a;
-	for (let j = 0; j <= b; j++) {
-		sum *= a;
-	}
-	return sum;
+//task 17
+
+let f = new Function('a', 'return a+1');
+
+function f(b, a) {
+	console.log(a + b);
 }
-console.log(pow(2, 5));
+setTimeout(f, 10000, "5", "4");
+let timerId = setInterval(() => console.log('tick'), 1000);
+setTimeout(() => { clearInterval(timerId); console.log('stop'); }, 50000);
+
+let timeout = 1000;
+setTimeout(function f() {
+	let i = 0;
+	i++;
+	console.log(i);
+	setTimeout(f, timeout);
+}, timeout);
 
 
 
 
 
-// task 16.1
-function sumTo(numb) {
-
-	return (numb == 1) ? 1 : numb * sumTo(numb - 1);
-}
-console.log(sumTo(5));
-
-
-
-
-
-
-//task 16.2
-let list = {
-	value: 1,
-	next: {
-		value: 2,
-		next: {
-			value: 3,
-			next: {
-				value: 4,
-				next: null
-			}
+// task 17.1
+function printNumbers(from, to) {
+	setTimeout(() => {
+		if (from <= to) {
+			console.log(from);
+			from += printNumbers(from + 1, to);
 		}
+	}, 1000);
+
+}
+printNumbers(1, 10);
+
+
+
+
+//task17.3
+function sayHi() {
+	console.log(this.name);
+}
+
+let user = { name: "John" };
+let admin = { name: "Admin" };
+
+sayHi.call(user); // John
+sayHi.call(admin); // Admin
+
+
+let st = Object.getOwnPropertyDescriptors(Math);
+console.log(st);
+
+
+
+
+//task17.5
+let user = {
+	name: "John",
+	surname: "Smith",
+
+	get fullName() {
+		return `${this.name} ${this.surname}`;
+	},
+
+	set fullName(value) {
+		this.name = value;
 	}
 };
 
-function printList(list) {
-
-	console.log(list.value);
-
-	if (list.next) {
-		printList(list.next);
-	}
-
-}
-
-printList(list);
-
-function sum(a) {
-
-	return function (b) {
-		return a + b;
-	}
-
-}
-console.log(sum(4)(5));
-
-
-
-
-
-
-//task16.3
-function inArray(arrr) {
-	return function (y) {
-		for (let i = 0; i < arrr.length; i++) {
-			if (y == arrr[i]) {
-				return y;
-			}
-		}
-	}
-}
-
-let arr = [1, 2, 3, 4, 5, 6, 7];
-
-console.log(arr.filter(inArray([1, 2, 10])));
-
-
-
-
-//task 16.4
-
-function byField(str) {
-	return ((a, b) => a[str] > b[str] ? 1 : -1);
-}
-
-let users = [
-	{ name: "John", age: 20, surname: "Johnson" },
-	{ name: "Pete", age: 18, surname: "Peterson" },
-	{ name: "Ann", age: 19, surname: "Hathaway" }
-];
-users.sort(byField('age'));
-console.log(users);
-
+user.fullName = "Alice Cooper";
+console.log(`${user.name} ${user.surname}`);
