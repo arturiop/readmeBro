@@ -1,55 +1,77 @@
-"use strict"
-// //task 19
-// let age = 26;
-// class User {
-// 	name = "Аноним";
 
+//task 20
+let er = new SyntaxError("eroorina");
 
-// 	sayHi() {
-// 		console.log(`Привет, ${this.name}! ${age}`);
-// 	}
-// }
+let json = '{ "age": 30 }';
+try {
+	let use = JSON.parse(json);
 
-// new User().sayHi();
-
-
-
-// class MyClass {
-// 	prop = value; // свойство
-// 	constructor(...) { // конструктор
-// 		// ...
-// 	}
-// 	method(...) { } // метод
-// 	get something(...) { } // геттер
-// 	set something(...) { } // сеттер
-
-// 	[Symbol.iterator]() { } // метод с вычисляемым именем (здесь - символом)
-// 	// ...
-// }
-
-
-// class A {
-// 	constructor(name, age) {
-// 		this.name = name;
-// 		this.age = age;
-// 		this.surName = "artur";
-// 	}
-
-// }
-class Animal {
-
-	constructor(name) {
-		this.name = name;
+	if (!use.name) {
+		throw new SyntaxError("lfyyst");
 	}
+	console.log(use.name);
 
+} catch (er) {
+	console.log(er.message);
 }
 
-class Rabbit extends Animal {
-	constructor(name) {
-		super(name);
-		this.created = Date.now();
+
+
+// task 20.1
+class MyErrorClass extends Error {
+	constructor(message) {
+		super(message);
+		this.name = "ValidationError";
 	}
 }
 
-let rabbit = new Rabbit("Белый кролик"); // Error: this is not defined
-console.log(rabbit.name);
+class ValidationError extends MyErrorClass {
+
+}
+
+class PropertyRequiredError extends ValidationError {
+	constructor(property) {
+		super("Not property:" + property);
+		this.property = property;
+		this.name = "PropertyRequiredError";
+	}
+}
+
+// Использование
+function readUser(json) {
+	let user = JSON.parse(json);
+
+	if (!user.age) {
+		throw new PropertyRequiredError("age");
+	}
+	if (!user.name) {
+		throw new PropertyRequiredError("name");
+	}
+
+	return user;
+}
+
+// Рабочий пример с try..catch
+
+try {
+	let user = readUser('{"name": "ff" }');
+} catch (err) {
+	if (err instanceof ValidationError) {
+		console.log(err.message);
+		console.log(err.property);
+		console.log(err.name);
+	} else if (err instanceof SyntaxError) { // (*)
+		console.log('');
+		("JSON Ошибка Синтаксиса: " + err.message);
+	} else {
+		throw err;
+	}
+}
+
+
+class FormatError extends SyntaxError {
+	constructor(message) {
+		this.name = "FormatError";
+		super(message);
+	}
+}
