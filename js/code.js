@@ -8,6 +8,7 @@ function isIsogram(str) {
 	for (let i = 0; i < ourArray.length; i++) {
 		for (let j = 0; j < ourArray.length; j++) {
 			if (ourArray[i] == ourArray[j]) {
+				f
 				return true;
 			};
 
