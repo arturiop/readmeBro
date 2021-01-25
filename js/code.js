@@ -1,22 +1,15 @@
 "use stric"
 //task 21
 
+function createPhoneNumber(numbers) {
 
-function nbYear(p0, percent, aug, p) {
-	let years = 0;
-	while (p0 < p) {
-		let procent = p0 * percent / 100;
-		p0 += aug + procent;
-		years++;
-	};
+	numbers.splice(0, 0, "(");
+	numbers.splice(4, 0, ")", " ");
+	numbers.splice(9, 0, "-");
 
-	return years;
+	return numbers.join("");
 
 };
-console.log(nbYear(1500000, 2.5, 10000, 2000000));
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 
 
-
-// Test.assertEquals(nbYear(1500, 5, 100, 5000), 15);
-// Test.assertEquals(nbYear(1500000, 2.5, 10000, 2000000), 10);
-// Test.assertEquals(nbYear(1500000, 0.25, 1000, 2000000), 94);
