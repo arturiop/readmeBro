@@ -2,28 +2,21 @@
 //task 21
 
 
-function DNAStrand(str) {
-	let ourArray = Array.from(str);
-	for (let key in ourArray) {
+function nbYear(p0, percent, aug, p) {
+	let years = 0;
+	while (p0 < p) {
+		let procent = p0 * percent / 100;
+		p0 += aug + procent;
+		years++;
+	};
 
-		switch (ourArray[key]) {
-			case "A":
-				ourArray[key] = "T";
-				break;
-			case "T":
-				ourArray[key] = "A";
-				break;
-			case "G":
-				ourArray[key] = "C";
-				break;
-			case "C":
-				ourArray[key] = "G";
-				break;
-		}
-	}
-	return ourArray.join("");
+	return years;
+
 };
-console.log(DNAStrand("AATTGGCC"));
+console.log(nbYear(1500000, 2.5, 10000, 2000000));
 
 
 
+// Test.assertEquals(nbYear(1500, 5, 100, 5000), 15);
+// Test.assertEquals(nbYear(1500000, 2.5, 10000, 2000000), 10);
+// Test.assertEquals(nbYear(1500000, 0.25, 1000, 2000000), 94);
