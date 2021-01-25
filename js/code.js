@@ -2,19 +2,28 @@
 //task 21
 
 
-function isIsogram(str) {
+function DNAStrand(str) {
 	let ourArray = Array.from(str);
+	for (let key in ourArray) {
 
-	for (let i = 0; i < ourArray.length; i++) {
-		for (let j = 0; j < ourArray.length; j++) {
-			if (ourArray[i] == ourArray[j]) {
-				f
-				return true;
-			};
-
-		};
-
-		return false;
+		switch (ourArray[key]) {
+			case "A":
+				ourArray[key] = "T";
+				break;
+			case "T":
+				ourArray[key] = "A";
+				break;
+			case "G":
+				ourArray[key] = "C";
+				break;
+			case "C":
+				ourArray[key] = "G";
+				break;
+		}
 	}
+	return ourArray.join("");
 };
-console.log(isIsogram("DermaDtoglyphics"));
+console.log(DNAStrand("AATTGGCC"));
+
+
+
