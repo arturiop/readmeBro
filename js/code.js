@@ -1,15 +1,34 @@
 "use stric"
 //task 21
 
-function createPhoneNumber(numbers) {
+function spinWords(str) {
 
-	numbers.splice(0, 0, "(");
-	numbers.splice(4, 0, ")", " ");
-	numbers.splice(9, 0, "-");
+	let newArray = str.split(" ");
 
-	return numbers.join("");
+	if (newArray.length > 1) {
+		for (let i = 0; i < newArray.length; i++) {
+			let wi = Array.from(newArray[i]);
 
-};
-console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+			if (wi.length > 4) {
+				wi.reverse();
+				newArray[i] = wi.join("");
+			} else {
+				newArray[i] = wi.join("");
+			}
+		}
+		newArray = newArray.join(" ");
+	} else {
+		let ww = Array.from(newArray[0]);
+		ww.reverse();
+		newArray = ww.join("");
+	}
 
+	return newArray;
 
+}
+
+console.log(spinWords("Hey fellow warriors"));
+console.log(spinWords("Welcome"));
+console.log(spinWords("Hey fellow warriors"));
+console.log(spinWords("This is a test"));
+console.log(spinWords("This is another test"));
