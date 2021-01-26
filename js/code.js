@@ -1,15 +1,17 @@
 "use stric"
 
 function scramble(str1, str2) {
-	let rst1 = Array.from(str1);
-	let rst2 = Array.from(str2);
 
-	let retult = (rst2.filter(item => rst1.includes(item))).join("");
+	let result;
+	for (let i = 0; i < str2.length; i++) {
 
-
-	if (retult == str2) {
-		return true;
-	} else return false;
+		if (str1.indexOf(str2[i]) == -1) {
+			result = false;
+			break;
+		}
+		result = true;
+	}
+	return result;
 
 };
 console.log(scramble('rkqodlw', 'worsld'));
