@@ -1,28 +1,22 @@
 "use stric"
 
-function generateHashtag(str) {
-	if (str.length == 0) {
-		return false;
-	}
-	let result = generate(str);
-
-	if ((result.length <= 140) && ((result.length > 1))) {
-		return result;
-	} return false;
-
-
-
-
-
-	function generate(str) {
-		let res = str.split(" ");
-		for (let key in res) {
-			res[key] = res[key].charAt(0).toUpperCase() + res[key].slice(1);
-		}
-		let result = "#" + res.join("");
-		return result;
+function bouncingBall(h, bounce, window) {
+	if ((h < 1) || (bounce <= 0) || (bounce >= 1) || (h < window)) {
+		return -1;
 	}
 
-};
+	let count = 0;
+	while (h > window) {
+		h = h * bounce;
+		count += 2;
+	}
+	count += (-1);
+	return count;
+}
 
-console.log(generateHashtag("codewars is nice"));
+
+console.log(bouncingBall(1, 0.1, 0.1));
+console.log(bouncingBall(0, 0.66, 1.5));
+console.log(bouncingBall(3.0, 0.66, 1.5));
+console.log(bouncingBall(3.0, 0.66, 1.5));
+console.log(bouncingBall(3.0, 0.66, 1.5));
